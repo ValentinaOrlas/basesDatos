@@ -5,7 +5,7 @@ create database biblioteca;
 #Llamar base de datos
 use biblioteca;
 
-drop table usuario;
+
 #Crear tabla de usuario
 create table usuario (
 id_usuario varchar(11) primary key,
@@ -19,7 +19,8 @@ email varchar(20) unique not null
 #Muestra la tabla 
 describe usuario;
 
-drop table telefono;
+#--------------------------------------------------------------------------------------------------------------------
+
 #Crear tabla de telefono
 create table telefono (
 id integer (11) primary key,
@@ -28,7 +29,9 @@ id_usuario varchar (11) not null,
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
+#Describe la tabla telefono
 describe telefono;
+
 #------------------------------------------------------------
 
 #Crear tabla libro
@@ -50,11 +53,16 @@ id_libro varchar(20) not null,
 primary key(id_usuario, id_libro)
 );
 
+#Describe la tabla usuario_libro
 describe usuario_libro;
 
+#Define el id_usuario en la tabla usuario_libro como fk
 alter table usuario_libro add foreign key (id_usuario) references usuario(id_usuario);
+
+#Define el id_libro en la tabla usuario_libro como fk
 alter table usuario_libro add foreign key (id_libro) references libro(id_libro);
 
+#Describe la tabla usuario_libro
 describe usuario_libro;
 
 #Crear tabla préstamo 
@@ -70,8 +78,10 @@ id_libro varchar (20) not null,
 id_prestamo varchar (20) not null,
 primary key (id_libro, id_prestamo)
 );
-
+#Define el id_prestamo en la tabla libro_prestamo como fk
 alter table libro_prestamo add foreign key (id_prestamo) references prestamo(id_prestamo);
+
+#Define el id_libro en la tabla libro_prestamo como fk
 alter table libro_prestamo add foreign key (id_libro) references libro(id_libro);
 
 #Crear tabla empleado
@@ -91,7 +101,10 @@ id_empleado varchar (20) not null,
 primary key (id_prestamo, id_empleado)
 );
 
+#Define el id_prestamo en la tabla empleado_prestamo como fk
 alter table empleado_prestamo add foreign key (id_prestamo) references prestamo (id_prestamo);
+
+#Define el id_empleado en la tabla empleado_prestamo como fk
 alter table empleado_prestamo add foreign key(id_empleado) references empleado (id_empleado);
 
 #crear tabla informe

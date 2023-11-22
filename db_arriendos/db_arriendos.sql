@@ -36,9 +36,10 @@ primer_nombre varchar(10) not null,
 segundo_nombre varchar(10),
 primer_apellido varchar(10) not null,
 segundo_apellido varchar(10),
-email varchar(50)
+email varchar(50)	
 );
 
+alter table propietario modify column email varchar(50) unique;
 #-----------------------------------------------------------------------------------------------------------------------------
 
 #crear la tabla vivienda
@@ -125,3 +126,7 @@ alter table telefonos add column id_inquilino smallint not null;
 alter table telefonos add foreign key(id_inquilino) references inquilino(id_inquilino);
 alter table telefonos add column id_propietario smallint not null;
 alter table telefonos add foreign key(id_propietario) references propietario(id_propietario);
+
+alter table telefonos modify column id_inquilino smallint null;
+alter table telefonos modify column id_propietario smallint null;
+describe telefonos;
