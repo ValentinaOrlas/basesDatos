@@ -130,3 +130,30 @@ alter table telefonos add foreign key(id_propietario) references propietario(id_
 alter table telefonos modify column id_inquilino smallint null;
 alter table telefonos modify column id_propietario smallint null;
 describe telefonos;
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------
+#Insertar info en tabla departamento
+insert into departamento values(1,'Quindío'),(2,'Cundinamarca'),(3,'Córdoba'),(4,'Cesar'),(5,'Chocó');
+
+#Insertar info en tabla ciudad 
+insert into ciudad values(1,'Armenia',1),(2,'Bogotá',2),(3,'Montería',3),(4,'Valledupar',4),(5,'Quibdó',5);
+
+#Insertar info tabla propietario
+insert into propietario values(10077,'Johana','Valentina','Orlas','Pachon','johanavop25@gmail.com'),
+(24603,'Lucelly','María','Pachon','Bizcaya','lucy1947@gmail.com'),(15577,'John','Freddy','Orlas','Pachón','orlas@gmail.com'),
+(10059,'Sara','Sofía','Orlas','Pachon','sofia@gmail.com'),(10949,'Alexandra','Marcela','Orlas','Pachon','alexa.p@gmail.com');
+
+#Insertar info en tabla vivienda
+insert into vivienda values(1,'Edificio Camelo','19-12',3,'apto grande',10077,2);
+insert into vivienda (id_vivienda, direccion,cantidad_habitantes,descripcion,id_propietario,id_ciudad) values(2,'60 casas','2','casa esquinera',15577,3),(3,'Avenida Las Vegas',5,'Apartamento en arreglo',10949,5),
+(4,'Guaduales de la Villa',9,'Casa campestre',24603,1),(5,'Bosques de Pinares',3,'Casa matrimonial',10059,5);
+
+#Insertar info arriendos
+insert into arriendos values(1,'2021-01-18','2025-01-18',600000,1),(2,'2019-03-25','2024-03-25',2),(3,'2023-06-09','2027-06-09',3),
+(4,'2020-07-26','2024-07-26',4),(5,'2018-10-17','2028-10-17',5);
+
+
+
+
